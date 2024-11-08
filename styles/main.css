@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --veryDarkGrayishBlue: hsl(217, 19%, 35%);
+  --desaturatedDarkBlue: hsl(214, 17%, 51%);
+  --grayishBlue: hsl(212, 23%, 69%);
+  --lightGrayishBlue: hsl(210, 46%, 95%);
+  --white: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: var(--lightGrayishBlue);
+    position: relative;
+}
+
+p {
+    font-size: 13px;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+svg {
+    pointer-events: none;
+}
+
+.card{
+    width: 45%;
+    background-color:var(--white);
+    box-shadow: 4px 4px 30px 0 rgba(0, 0, 0, .05);
+    border-radius: 10px;
+    display: flex;
+}
+
+.card > img {
+    aspect-ratio: 1;
+    width: 40%;
+    object-fit: cover;
+    object-position: left;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.info-wrapper {
+    width: 60%;
+    padding: 32px;
+}
+
+h3 {
+    color: var(--veryDarkGrayishBlue);
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--desaturatedDarkBlue);
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.user {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user > div {
+    display: flex;
+    gap: 20px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+.user-info > p:nth-child(1) {
+    color: var(--veryDarkGrayishBlue);
+    font-weight: bold;
+}
+
+.share {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    cursor: pointer;
+    background-color: var(--lightGrayishBlue);
+    position: relative;
+    z-index: 99;
+}
+
+.share-icon {
+    margin-left: auto;
+    background-color: var(--desaturatedDarkBlue);
+    pointer-events: none;
+
+    path {
+        fill: var(--white);
+    }
+}
+
+.share-bubble {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: -65px;
+    background-color: var(--veryDarkGrayishBlue);
+    border-radius: 12px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    display: none;
+    z-index: 0;
+}
+
+.arrow {
+    width: 15px;
+    height: 15px;
+    background-color: var(--veryDarkGrayishBlue);
+    position: absolute;
+    left: 50%;
+    bottom: -7.5px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.share-bubble > p {
+    letter-spacing: 4px;
+    color: var(--grayishBlue);
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+@media only screen and (max-width: 1536px){
+    .share-icon {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1280px){
+    .card {
+        width: 50%;
+    }
+    .share-icon {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1024px){
+    .card {
+        width: 65%;
+    }
+    .share-icon {
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px){
+    .card {
+        width: 80%;
+    }
+    .share-icon {
+        display: none;
+    }
+}
+@media only screen and (max-width: 640px){
+    .card {
+        width: 80%;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .card > img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border-radius: 0;
+    }
+    .info-wrapper {
+        width: 100%;
+    }
+
+    .share-bubble {
+        top: 0;
+        height: 70px;
+        right: -105%;
+        z-index: 0;
+        border-radius: 0;
+        justify-content: start;
+        gap: 20px;
+        padding: 0 32px;
+    }
+    .arrow {
+        display: none;
+    }
+    .share-icon {
+        display: flex;
+    }
+}
